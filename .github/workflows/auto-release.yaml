@@ -2,8 +2,10 @@ name: Auto Release
 
 #hatch version minor; git add .; git commit -m "auto"; git push
 on:
-  release:
-    types: [created]
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
 
 jobs:
   check-version:
