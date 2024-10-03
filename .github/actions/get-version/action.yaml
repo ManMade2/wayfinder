@@ -15,12 +15,11 @@ runs:
       id: read-file
       shell: bash
       run: |
-
-        regex_pattern='([0-9]+\.[0-9]+\.[0-9]+)\"$'
         #echo ${{ inputs.path }}
         #content=`cat ${{ inputs.path }}`
         content=`cat __about__.py`
         #echo ${{content}}
+        regex_pattern='([0-9]+\.[0-9]+\.[0-9]+)\"$'
 
         if [[ $content =~ $regex_pattern ]]; then
             echo "[GetVersion] Version = ${BASH_REMATCH[1]}"
